@@ -1,3 +1,3 @@
-const { PORT, DB } = process.env;
+const { PORT, DB, CLOUD_API, CLOUD_NAME, CLOUD_SECRET } = process.env;
 
-export { PORT, DB };
+export { PORT, DB, CLOUD_API, CLOUD_NAME, CLOUD_SECRET };
