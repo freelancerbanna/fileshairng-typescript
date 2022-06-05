@@ -1,11 +1,14 @@
-import express from "express";
+import { Router } from "express";
 import multer from "multer";
-const router = express.Router();
+const router = Router();
 
 const storage = multer.diskStorage({});
 
 let upload = multer({
   storage,
+});
+router.get("/api", (req, res) => {
+  res.send("Working");
 });
 
 router.post("/upload", upload.single("myFile"), (req, res) => {

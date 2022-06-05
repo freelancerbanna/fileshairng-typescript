@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
+import { readdirSync } from "fs";
 import mongoose, { ConnectOptions } from "mongoose";
 dotenv.config();
 const app = express();
@@ -12,6 +14,20 @@ import { DB, PORT } from "./env";
 // middle ware
 app.use(cors());
 app.use(express.json());
+
+// calling all routes
+const routesPath = path.join(__dirname, "./routes");
+
+readdirSync(routesPath).forEach(async (filename) => {
+  let route = path.join(routesPath, filename);
+  // console.log(route);
+  try {
+    const item = await import(route);
+    app.use("/api", item.default);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 mongoose
   .connect(DB!, {
