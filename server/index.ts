@@ -9,7 +9,6 @@ const app = express();
 
 //env file importing
 import { DB, PORT } from "./env";
-// const { PORT, DB } = process.env;
 
 // middle ware
 app.use(cors());
@@ -19,10 +18,9 @@ app.use(express.json());
 const routesPath = path.join(__dirname, "./routes");
 
 readdirSync(routesPath).forEach(async (filename) => {
-  let route = path.join(routesPath, filename);
-  // console.log(route);
+  let routes = path.join(routesPath, filename);
   try {
-    const item = await import(route);
+    const item = await import(routes);
     app.use("/api", item.default);
   } catch (error) {
     console.log(error);
