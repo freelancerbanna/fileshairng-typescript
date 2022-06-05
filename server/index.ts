@@ -3,14 +3,15 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose, { ConnectOptions } from "mongoose";
 dotenv.config();
-
-import { DB, PORT } from "./env";
-//
-// const { PORT, DB } = process.env;
-
 const app = express();
 
+//env file importing
+import { DB, PORT } from "./env";
+// const { PORT, DB } = process.env;
+
+// middle ware
 app.use(cors());
+app.use(express.json());
 
 mongoose
   .connect(DB!, {
