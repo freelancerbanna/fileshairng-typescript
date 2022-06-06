@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 //
-import DropzoneWrapper from "components/Dropzone";
+import { DropzoneWrapper } from "components";
 
 const Home = () => {
   return (
