@@ -8,8 +8,8 @@ const FileRender: FunctionComponent<{ file: IFile }> = ({
   file: { format, name, sizeInBytes, id },
 }) => {
   return (
-    <div className="flex items-center p-4">
-      <div className="w-14 h-14 relative">
+    <div className="flex items-center p-4 w-4/5 justify-between">
+      <div className="w-8 h-8 relative">
         <Image
           src={`/image/${format}.png`}
           alt="fake file sharing"

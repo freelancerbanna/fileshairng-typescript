@@ -13,7 +13,10 @@ const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
     useDropzone({
       onDrop,
       multiple: false,
-      accept: { "image/*": ["png,jpeg,jpg"], "audio/*": ["mpeg,ogg,mp3"] },
+      accept: {
+        "image/*": [".png,.jpeg,.jpg"],
+        "audio/*": [".mpeg,.mp3,.ogg"],
+      },
     });
   return (
     <div className="p-4 w-[95%]">
