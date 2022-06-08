@@ -1,11 +1,13 @@
 import classNames from "classnames";
 import Image from "next/image";
-import React, { useCallback } from "react";
+import React, { Dispatch, FunctionComponent, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
-const DropZone = () => {
+const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
+  setFile,
+}) => {
   const onDrop = useCallback((acceptedFiles: any) => {
-    console.log(acceptedFiles);
+    setFile(acceptedFiles[0]);
   }, []);
   const {
     getRootProps,
@@ -16,7 +18,7 @@ const DropZone = () => {
   } = useDropzone({
     onDrop,
     multiple: false,
-    accept: { "image/*": ["png,jpeg,jpg,gif"], "audio/*": ["mpeg,ogg,mp3"] },
+    accept: { "image/*": ["png,jpeg,jpg"], "audio/*": ["mpeg,ogg,mp3"] },
   });
   return (
     <div className="p-4 w-[95%]">
