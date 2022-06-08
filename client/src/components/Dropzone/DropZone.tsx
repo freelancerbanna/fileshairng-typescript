@@ -9,17 +9,12 @@ const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
   const onDrop = useCallback((acceptedFiles: any) => {
     setFile(acceptedFiles[0]);
   }, []);
-  const {
-    getRootProps,
-    getInputProps,
-    isDragActive,
-    isDragAccept,
-    isDragReject,
-  } = useDropzone({
-    onDrop,
-    multiple: false,
-    accept: { "image/*": ["png,jpeg,jpg"], "audio/*": ["mpeg,ogg,mp3"] },
-  });
+  const { getRootProps, getInputProps, isDragAccept, isDragReject } =
+    useDropzone({
+      onDrop,
+      multiple: false,
+      accept: { "image/*": ["png,jpeg,jpg"], "audio/*": ["mpeg,ogg,mp3"] },
+    });
   return (
     <div className="p-4 w-[95%]">
       <div {...getRootProps()}>
