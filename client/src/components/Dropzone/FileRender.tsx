@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import Image from "next/image";
+import prettyBytes from "pretty-bytes";
 //
 import { IFile } from "types/file";
 
@@ -16,7 +17,7 @@ const FileRender: FunctionComponent<{ file: IFile }> = ({
         />
       </div>
       <span>{name}</span>
-      <span>{sizeInBytes}</span>
+      <span>{prettyBytes(sizeInBytes)}</span>
     </div>
   );
 };
