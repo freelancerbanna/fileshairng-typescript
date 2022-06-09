@@ -1,13 +1,17 @@
 import { FunctionComponent, useState } from "react";
+import toast from "react-hot-toast";
 //
 import Img from "libs/Img";
 
 const DownloadLink: FunctionComponent<{ downloadLink: any }> = ({
   downloadLink,
 }) => {
-  const [copy, setCopy] = useState(false);
   const handleClick = () => {
     navigator.clipboard.writeText(downloadLink);
+    toast.success("Copied to clipboard", {
+      duration: 1500,
+      position: "bottom-right",
+    });
   };
   return (
     <div className="p-5 mb-2 flex flex-col items-center justify-center border-2 border-dashed w-[90%] border-[#9de1d7] rounded-[5px]">
