@@ -11,7 +11,7 @@ const fileUpload = async (req: any, res: any) => {
 
     let uploadedFile: UploadApiResponse;
     uploadedFile = await cloudinary.uploader.upload(req.file.path, {
-      folder: "sharewithme",
+      folder: "fakesharing",
       resource_type: "auto",
     });
 
