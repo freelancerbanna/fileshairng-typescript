@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { FormEventHandler, useState } from "react";
+import Swal from "sweetalert2";
+
+//
 import DropZone from "./DropZone";
 import RenderZone from "./RenderZone";
 
@@ -22,9 +25,17 @@ const DropzoneWrapper = () => {
           "Content-Type": "multipart/form-data",
         },
       });
+      data &&
+        Swal.fire({
+          title: "Successfully uploaded",
+          text: "Please a donwload link will be there copy and paste that to new tab from your browser",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
 
-      setDownloadLink(data.downloadLink);
-      setId(data.id);
+      data && setFile(null);
+      data && setDownloadLink(data.downloadLink);
+      data && setId(data.id);
     } catch (error) {
       console.log(error);
     }
