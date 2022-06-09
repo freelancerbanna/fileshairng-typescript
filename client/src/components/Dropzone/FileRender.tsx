@@ -20,8 +20,6 @@ const FileRender: FunctionComponent<{ file: IFile }> = ({
         <span>{name}</span>
         <span>{prettyBytes(sizeInBytes)}</span>
       </div>
-
-      <button className="bg-[#131332] mt-5 rounded-[10px] p-2.5">Submit</button>
     </div>
   );
 };
