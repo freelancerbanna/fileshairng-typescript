@@ -4,15 +4,15 @@ import Swal from "sweetalert2";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
 //
-import { Wrapper } from "components";
+import { Wrapper, DownloadLink } from "components";
 import DropZone from "./DropZone";
 import RenderZone from "./RenderZone";
 
 const DropzoneWrapper = () => {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState("");
-  const [id, setId] = useState(null!);
-  const [downloadLink, setDownloadLink] = useState(null!);
+  const [id, setId] = useState("");
+  const [downloadLink, setDownloadLink] = useState("");
   //
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -38,6 +38,7 @@ const DropzoneWrapper = () => {
             icon: "success",
             confirmButtonText: "ok",
           });
+        console.log(data);
 
         data && setFile("");
         data && setDownloadLink(data.downloadLink);
@@ -58,9 +59,10 @@ const DropzoneWrapper = () => {
       {loading ? (
         <ScaleLoader color="#FDD757" />
       ) : (
-        <Wrapper downloadLink={downloadLink}>
+        <Wrapper>
           <DropZone setFile={setFile} />
           {file && <RenderZone file={file} handleSubmit={handleSubmit} />}
+          {downloadLink && <DownloadLink downloadLink={downloadLink} />}
         </Wrapper>
       )}
     </>
