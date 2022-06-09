@@ -60,9 +60,11 @@ const DropzoneWrapper = () => {
         <ScaleLoader color="#FDD757" />
       ) : (
         <Wrapper>
-          <DropZone setFile={setFile} />
+          {<DropZone setFile={setFile} />}
           {file && <RenderZone file={file} handleSubmit={handleSubmit} />}
-          {downloadLink && <DownloadLink downloadLink={downloadLink} />}
+          {downloadLink && !file && (
+            <DownloadLink downloadLink={downloadLink} />
+          )}
         </Wrapper>
       )}
     </>
