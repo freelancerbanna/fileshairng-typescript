@@ -7,7 +7,7 @@ import DropZone from "./DropZone";
 import RenderZone from "./RenderZone";
 
 const DropzoneWrapper = () => {
-  const [file, setFile] = useState(null!);
+  const [file, setFile] = useState("");
   const [id, setId] = useState(null!);
   const [donwloadLink, setDownloadLink] = useState(null!);
   //
@@ -28,12 +28,12 @@ const DropzoneWrapper = () => {
       data &&
         Swal.fire({
           title: "Successfully uploaded",
-          text: "Please a donwload link will be there copy and paste that to new tab from your browser",
+          text: "You are almosst therer! Please see a donwload link will be there copy and paste that to new tab from your browser",
           icon: "success",
           confirmButtonText: "Ok",
         });
 
-      data && setFile(null);
+      data && setFile("");
       data && setDownloadLink(data.downloadLink);
       data && setId(data.id);
     } catch (error) {
