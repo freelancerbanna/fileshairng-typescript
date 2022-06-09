@@ -52,16 +52,16 @@ const DropzoneWrapper = () => {
     }, 1000);
   };
   return (
-    <div className="w-[500px] h-auto flex items-center justify-center bg-[#15293a66] rounded-[10px] border-4 border-[#131332] shadow-2xl  flex-col">
+    <>
       {loading ? (
-        <ScaleLoader />
+        <ScaleLoader color="#FDD757" />
       ) : (
-        <>
+        <div className="w-[500px] h-auto flex items-center justify-center bg-[#15293a66] rounded-[10px] border-4 border-[#131332] shadow-2xl  flex-col">
           <DropZone setFile={setFile} />
           {file && <RenderZone file={file} handleSubmit={handleSubmit} />}
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
