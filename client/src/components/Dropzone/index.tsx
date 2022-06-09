@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
 //
+import { Wrapper } from "components";
 import DropZone from "./DropZone";
 import RenderZone from "./RenderZone";
 
@@ -42,6 +43,7 @@ const DropzoneWrapper = () => {
         data && setDownloadLink(data.downloadLink);
         data && setId(data.id);
       } catch (error: any) {
+        setLoading(false);
         Swal.fire({
           title: "Error!",
           text: error.response.data,
@@ -49,17 +51,17 @@ const DropzoneWrapper = () => {
           confirmButtonText: "ok",
         });
       }
-    }, 1000);
+    }, 500);
   };
   return (
     <>
       {loading ? (
         <ScaleLoader color="#FDD757" />
       ) : (
-        <div className="w-[500px] h-auto flex items-center justify-center bg-[#15293a66] rounded-[10px] border-4 border-[#131332] shadow-2xl  flex-col">
+        <Wrapper>
           <DropZone setFile={setFile} />
           {file && <RenderZone file={file} handleSubmit={handleSubmit} />}
-        </div>
+        </Wrapper>
       )}
     </>
   );

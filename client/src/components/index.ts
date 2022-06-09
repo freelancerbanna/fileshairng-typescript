@@ -1,4 +1,5 @@
 import Header from "./Header";
 import DropzoneWrapper from "./Dropzone";
+import Wrapper from "./Wrapper";
 
-export { Header, DropzoneWrapper };
+export { Header, DropzoneWrapper, Wrapper };
