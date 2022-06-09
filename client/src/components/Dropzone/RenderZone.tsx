@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react";
+import React, { FormEventHandler, FunctionComponent } from "react";
 
 import FileRender from "./FileRender";
 
 const RenderZone: FunctionComponent<{
   file: string | any;
-  handleSubmit: () => void;
+  handleSubmit: FormEventHandler<HTMLButtonElement>;
 }> = ({ file, handleSubmit }) => {
   return (
     <div className="p-4 w-[95%]">

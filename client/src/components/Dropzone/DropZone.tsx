@@ -19,7 +19,7 @@ const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
       },
     });
   return (
-    <div className="p-4 w-[95%]">
+    <div className="p-4 w-[95%] cursor-pointer">
       <div {...getRootProps()}>
         <input {...getInputProps()} />
         <div
@@ -29,7 +29,7 @@ const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
             isDragAccept && "border-green-600"
           )}
         >
-          <div className="w-32 h-16 overflow-hidden relative">
+          <div className="relative w-32 h-16 overflow-hidden">
             <Image
               src="/image/fileshare.png"
               layout="fill"
