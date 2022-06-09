@@ -12,7 +12,7 @@ const DropzoneWrapper = () => {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState("");
   const [id, setId] = useState(null!);
-  const [donwloadLink, setDownloadLink] = useState(null!);
+  const [downloadLink, setDownloadLink] = useState(null!);
   //
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -58,7 +58,7 @@ const DropzoneWrapper = () => {
       {loading ? (
         <ScaleLoader color="#FDD757" />
       ) : (
-        <Wrapper>
+        <Wrapper downloadLink={downloadLink}>
           <DropZone setFile={setFile} />
           {file && <RenderZone file={file} handleSubmit={handleSubmit} />}
         </Wrapper>
