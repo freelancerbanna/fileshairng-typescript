@@ -31,7 +31,7 @@ const DownloadLink: FunctionComponent<{ downloadLink: any }> = ({
       </div>
 
       <Link href={downloadLink} passHref>
-        <a target="_blank" className="text-[#6262f1] mt-3.5">
+        <a className="text-[#6262f1] mt-3.5">
           Click here to go to download page
         </a>
       </Link>
