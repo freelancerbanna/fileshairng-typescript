@@ -1,6 +1,7 @@
 import axios from "axios";
 import { GetServerSidePropsContext, NextPage } from "next";
 import prettyBytes from "pretty-bytes";
+import fileDownload from "js-file-download";
 
 import { IFile } from "types/file";
 import Img from "libs/Img";
@@ -9,6 +10,15 @@ import { Wrapper } from "components";
 const DownLoadLink: NextPage<{ file: IFile }> = ({
   file: { format, name, sizeInBytes, id },
 }) => {
+  const handleDownload = async () => {
+    let { data } = await axios.get(
+      `http://localhost:8000/api/file/${id}/download`,
+      {
+        responseType: "blob",
+      }
+    );
+    fileDownload(data, name);
+  };
   return (
     <div className="p-4 w-[95%]">
       {!id ? (
@@ -32,6 +42,12 @@ const DownLoadLink: NextPage<{ file: IFile }> = ({
                 <span>{name}</span>
                 <span>{prettyBytes(sizeInBytes)}</span>
               </div>
+              <button
+                className="mt-10 p-2.5 rounded-[8px] bg-[#131332] w-[150px] self-center"
+                onClick={handleDownload}
+              >
+                Download
+              </button>
             </div>
           </div>
         </Wrapper>
