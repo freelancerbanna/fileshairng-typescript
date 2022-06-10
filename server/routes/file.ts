@@ -3,9 +3,9 @@ const router = Router();
 
 import upload from "../helpers/multerUpload";
 import fileUpload from "../controllers/files/fileUpload";
-import fileDownload from "../controllers/files/fileDownload";
+import fileInfo from "../controllers/files/fileInfo";
 
 router.post("/upload/file", upload.single("filesharing"), fileUpload);
-router.get("/download/file/:id", fileDownload);
+router.get("/file/:id", fileInfo);
 
 export default router;
