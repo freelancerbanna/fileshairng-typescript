@@ -17,7 +17,7 @@ const DownLoadLink: NextPage<{ file: IFile }> = ({
         </span>
       ) : (
         <Wrapper>
-          <div className="flex flex-col items-center justify-center w-full border-2 border-dashed p-5 border-[#9de1d7] rounded-[5px] shadow-lg">
+          <div className="flex flex-col items-center justify-center w-full border-2 border-dashed p-5 border-[#9de1d7] rounded-[5px] shadow-md">
             <div className="w-12 h-12 rounded-[50%] overflow-hidden relative my-2">
               <Img src="/image/download.png" />
             </div>
