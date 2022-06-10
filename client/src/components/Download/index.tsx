@@ -21,7 +21,7 @@ const DownloadLink: FunctionComponent<{ downloadLink: any }> = ({
       <div className="flex items-center space-x-4">
         <span className="flex items-center break-all">{downloadLink}</span>
         <span
-          className="w-8 h-8 relative object-cover overflow-hidden rounded-[50%] bg-transparent cursor-pointer"
+          className="w-8 h-8 relative object-cover overflow-hidden rounded-[50%] bg-[lavender] cursor-pointer"
           onClick={handleClick}
         >
           <Img src="/image/copy.png" />
