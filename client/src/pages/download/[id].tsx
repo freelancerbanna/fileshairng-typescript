@@ -47,9 +47,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { id } = context.query;
   let file;
   try {
-    const { data } = await axios.get(
-      `http://localhost:8000/api/download/file/${id}`
-    );
+    const { data } = await axios.get(`http://localhost:8000/api/file/${id}`);
     file = data;
   } catch (error: any) {
     console.log(error.response);
