@@ -6,9 +6,12 @@ import { useDropzone } from "react-dropzone";
 const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
   setFile,
 }) => {
-  const onDrop = useCallback((acceptedFiles: any) => {
-    setFile(acceptedFiles[0]);
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles: any) => {
+      setFile(acceptedFiles[0]);
+    },
+    [setFile]
+  );
   const { getRootProps, getInputProps, isDragAccept, isDragReject } =
     useDropzone({
       onDrop,
@@ -32,6 +35,7 @@ const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
           <div className="relative w-32 h-16 overflow-hidden">
             <Image
               src="/image/fileshare.png"
+              alt="fake file sharing"
               layout="fill"
               objectFit="contain"
             />
