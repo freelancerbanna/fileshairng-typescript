@@ -40,6 +40,7 @@ const DropZone: FunctionComponent<{ setFile: Dispatch<any> }> = ({
               objectFit="contain"
             />
           </div>
+          {/* no eerror found */}
           {isDragReject ? (
             <p className="text-red-600">This type of file is not supported</p>
           ) : (
