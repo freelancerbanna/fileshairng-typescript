@@ -23,7 +23,7 @@ const DownLoadLink: NextPage<{ file: IFile }> = ({
     <div className="p-4 w-[95%]">
       {!id ? (
         <span>
-          <h1>Opps! There is no file you're finding</h1>
+          <h1>Opps! There is no file you&apos;re finding</h1>
         </span>
       ) : (
         <Wrapper>
@@ -32,7 +32,7 @@ const DownLoadLink: NextPage<{ file: IFile }> = ({
               <Img src="/image/download.png" />
             </div>
             <h2 className="text-center">
-              Congratulations! You're file is ready to be download
+              Congratulations! You&apos;re file is ready to be download
             </h2>
             <div className="flex flex-col w-4/5 p-4">
               <div className="flex items-center justify-between">
